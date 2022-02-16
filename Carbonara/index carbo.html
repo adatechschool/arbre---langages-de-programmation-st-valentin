@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Bienvenue chez les marmitons</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <style>  /* taille image sur page web*/
+        img {
+        width: 25%;
+        }
+    </style>
+    <body>
+
+        <h1>Recette Carbonara</h1>
+
+        <img src="carb.webp" alt="HTML5 Icon" width="50" height="150">
+
+        <script>
+     // 1ere etape
+        let ingredients=['Pâtes','Oeuf','Sel','Poivre','Lardon','Oignon','Parmesan'];
+        console.log(`Le nombre d'ingrédients nécéssaire est de ${ingredients.length}`);
+     // 2e Afficher la liste en tableau 
+        for (let i = 0; i < ingredients.length; i++)
+        {   
+        console.log(`${ingredients[i]}`);
+        }
+    // 3e affichage tableau valeurs indexées 
+       for (let j=0; j < ingredients.length; j++){
+       console.log((j+1) + '. '+ ingredients[j]); // (j+1) permet la numérotation
+       }
+    // 4e affichage alphabétique
+
+       let alphIngredients=ingredients.sort() // .sort() permet le classement alphabétique
+       for (let k=0; k < alphIngredients.length; k++){
+       console.log((k+1) + '. '+ alphIngredients[k]);
+       }
+       console.log(alphIngredients);
+
+       /* 5 - afficher le tableau dans ma page HTML 
+            - appendchild - create node */
+        let newOl= document.createElement('ol'); // <ol> : création liste 
+        for(l=0;l<alphIngredients.length;l++ ) // boucle pour parcourir les ingrédients
+        {
+            let txtIngredient=document.createTextNode (alphIngredients[l]); // creation noeud texte où je récupère un élément
+            let liIngredient=document.createElement('li'); // <li> : création élément liste
+            liIngredient.appendChild(txtIngredient); // je mets txt dans Li
+            newOl.appendChild(liIngredient); // je mets Li dans OL
+        }     // emboitage (noeud) : élément liste (txt) > liste (li) > ol >> boucle qui se repète
+              // emboitage (noeud) : 
+        //let newTableau= document.createTextNode (alphIngredients);// Création noeud
+        //newP.appendChild(newTableau);  // 
+        document.body.appendChild(newOl); // insertion de child dans HTML
+
+
+        </script>
+        
+        
+    </body>
+</html>
